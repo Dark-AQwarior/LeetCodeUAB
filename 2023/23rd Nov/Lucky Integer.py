@@ -21,4 +21,19 @@ class Solution:
             if j == i:
                 m = i
         return m
-        
+    
+# Optimized using dictionary
+
+class Solution:
+    def findLucky(self, arr: List[int]) -> int:
+        d = {}
+        for n in arr:
+            if n in d:
+                d[n] += 1
+            else:
+                d[n] = 1
+        m = -1
+        for n, c in d.items():
+            if n == c:
+                m = max(m, n)
+        return m       
