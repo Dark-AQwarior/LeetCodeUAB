@@ -8,3 +8,17 @@ class Solution:
                 if nums[i] == nums[j]:
                     c+=1
         return c
+    
+# Optimized using dictionaries
+
+class Solution:
+    def numIdenticalPairs(self, nums: List[int]) -> int:
+        c = 0
+        d = {}
+        for i in nums:
+            if i in d:
+                c += d[i] # adding the frequency of the identical element
+                d[i] += 1
+            else:
+                d[i] = 1
+        return c
