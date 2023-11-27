@@ -14,3 +14,14 @@ class Solution:
             return m
         else:
             return 0
+
+# Optimized code
+
+class Solution:
+    def maximumTripletValue(self, nums: List[int]) -> int:
+        x, y, m = 0, 0, 0
+        for i in nums:
+            x = max(x, i*y)
+            y = max(y, m-i)
+            m = max(m, i)
+        return x
